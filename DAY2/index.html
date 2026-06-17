@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS for Beginners — All Examples</title>
+
+  <!-- This ONE line brings in all our styles from style.css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>CSS for Beginners</h1>
+  <p>All our class examples on one page. Open <b>style.css</b> next to this file to read how each one works.</p>
+
+
+  <!-- 4. THE SHAPE OF A CSS RULE -->
+  <div class="section">
+    <h2>4. A CSS Rule</h2>
+    <p>A rule has three parts: <b>selector { property: value; }</b></p>
+    <div class="blue-heading">Hello CSS</div>
+  </div>
+
+
+  <!-- 5. SELECTORS -->
+  <div class="section">
+    <h2>5. Selectors</h2>
+
+    <p><b>Element selector</b> — styles every tag of one kind (every &lt;h4&gt; here is navy):</p>
+    <h4>I am an h4 heading.</h4>
+
+    <p><b>Class selector</b> (a dot) — reuse it on many elements:</p>
+    <p class="yellow-highlight">A highlighted paragraph.</p>
+    <span class="yellow-highlight">A highlighted span too.</span>
+
+    <p><b>ID selector</b> (a hash) — for one special element:</p>
+    <div id="main-box">I am styled by an ID.</div>
+  </div>
+
+
+  <!-- 5b. SPECIFICITY -->
+  <div class="section">
+    <h2>5b. Who Wins?</h2>
+    <p class="plain">I only have a plain style — grey.</p>
+    <p class="warning">I have a class — orange.</p>
+    <p class="warning" id="special">I have a class AND an ID — red wins (ID is stronger).</p>
+  </div>
+
+
+  <!-- 6. COLORS -->
+  <div class="section">
+    <h2>6. Colors</h2>
+    <p>You can write a colour as a name, a HEX code, or rgb():</p>
+    <span class="swatch color-name"></span>
+    <span class="swatch color-hex"></span>
+    <span class="swatch color-rgb"></span>
+    <p><span class="color-button">A coloured button</span></p>
+    <p><b>color</b> = the text · <b>background-color</b> = behind it.</p>
+  </div>
+
+
+  <!-- 7. STYLE YOUR FIRST PAGE -->
+  <div class="section">
+    <h2>7. Your First Styled Page</h2>
+    <div class="about-box">
+      <h3 class="about-name">Hello, I am Ravi</h3>
+      <p class="about-line">This is my first styled web page!</p>
+    </div>
+  </div>
+
+
+  <!-- 8. TEXT & FONTS -->
+  <div class="section">
+    <h2>8. Text &amp; Fonts</h2>
+    <div class="big-text">Big Bold Centered Text</div>
+    <p><a href="#" class="no-underline">A link with no underline →</a></p>
+    <p class="airy-text">This paragraph has extra space between its lines, which makes long text much easier and more comfortable to read on a screen.</p>
+  </div>
+
+
+  <!-- 9 + 10. BOX MODEL, MARGIN, PADDING, BORDER -->
+  <div class="section">
+    <h2>9 &amp; 10. The Box Model</h2>
+    <p>content → padding → border → margin. Padding is inside, margin is outside.</p>
+    <div class="box">I am a box with padding, a border, and margin.</div>
+    <p>border-radius: 50% makes a circle:</p>
+    <div class="circle"></div>
+  </div>
+
+
+  <!-- 11. BACKGROUNDS -->
+  <div class="section">
+    <h2>11. Backgrounds</h2>
+    <div class="banner">
+      <h3>A Banner</h3>
+      <p>A background that fills the whole area.</p>
+    </div>
+  </div>
+
+
+  <!-- 12. UNITS -->
+  <div class="section">
+    <h2>12. Units (px, %, rem)</h2>
+    <div class="full-width">This box uses width: 100% — it stretches to fit.</div>
+  </div>
+
+
+  <!-- 13. DISPLAY -->
+  <div class="section">
+    <h2>13. Display</h2>
+    <p>These links sit in a row (display: inline-block):</p>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>There is a hidden message here →<span class="hidden">YOU CANNOT SEE ME</span>← but display:none hides it.</p>
+  </div>
+
+
+  <!-- 14. FLEXBOX -->
+  <div class="section">
+    <h2>14. Flexbox</h2>
+    <p>Spread across (space-between):</p>
+    <div class="row">
+      <div class="box-item">1</div>
+      <div class="box-item">2</div>
+      <div class="box-item">3</div>
+    </div>
+    <p>Pushed to the centre:</p>
+    <div class="row row-center">
+      <div class="box-item">1</div>
+      <div class="box-item">2</div>
+      <div class="box-item">3</div>
+    </div>
+  </div>
+
+
+  <!-- 15. POSITION -->
+  <div class="section">
+    <h2>15. Position</h2>
+    <p>The red tag sticks to the corner (position: absolute):</p>
+    <div class="tag-area">
+      <span class="corner-tag">NEW</span>
+    </div>
+  </div>
+
+
+  <!-- 16. HOVER & TRANSITION -->
+  <div class="section">
+    <h2>16. Hover &amp; Transition</h2>
+    <p>Point your mouse at the button — it darkens smoothly:</p>
+    <button class="button">Add to Cart</button>
+  </div>
+
+
+  <!-- 17. RESPONSIVE -->
+  <div class="section">
+    <h2>17. Responsive (Media Query)</h2>
+    <p>Make your browser window narrow. The flex rows above turn into a single column on small screens.</p>
+  </div>
+
+
+  <!-- 18. FINAL PROJECT -->
+  <div class="section">
+    <h2>18. Final Project: Profile Card</h2>
+    <div class="card-area">
+      <div class="card">
+        <div class="card-photo">R</div>
+        <h3 class="card-name">Ravi Kumar</h3>
+        <p class="card-job">Web Development Student</p>
+        <a href="#" class="button">Follow</a>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;">Tomorrow: JavaScript — we make these pages move! 🚀</p>
+
+</body>
+</html>
