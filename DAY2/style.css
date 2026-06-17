@@ -1,0 +1,349 @@
+/* ============================================================
+   CSS FOR BEGINNERS  —  ALL EXAMPLES IN ONE FILE
+   ------------------------------------------------------------
+   HOW TO READ THIS FILE:
+     • Every block starts with a comment that says, in simple
+       words, what the CSS does.
+     • Open index.html to SEE each example on the screen.
+     • This file is joined to the page by ONE line in index.html:
+           <link rel="stylesheet" href="style.css">
+   ============================================================ */
+
+
+/* ----- PAGE SETUP — you can ignore this part for now ----- */
+* {
+  box-sizing: border-box;     /* makes box sizes easy to control */
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #222222;
+  line-height: 1.6;
+  max-width: 850px;
+  margin: 0 auto;             /* centres the page */
+  padding: 20px;
+}
+.section {
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+h2 {                          /* the blue title on every box */
+  color: #2563eb;
+}
+
+
+/* ============================================================
+   4. A CSS RULE LOOKS LIKE THIS:
+      selector { property: value; }
+   ============================================================ */
+
+/* Make this heading blue, put it in the centre, and make it big */
+.blue-heading {
+  color: blue;
+  text-align: center;
+  font-size: 40px;
+}
+
+
+/* ============================================================
+   5. SELECTORS — how we choose WHAT to style
+   ============================================================ */
+
+/* ELEMENT selector: just the tag name.
+   It styles EVERY tag of that kind. Here, every <h4> turns navy. */
+h4 {
+  color: navy;
+}
+
+/* CLASS selector: starts with a dot (.)
+   You can reuse the same class on many elements. */
+.yellow-highlight {
+  background-color: yellow;
+}
+
+/* ID selector: starts with a hash (#)
+   Use an ID on only ONE element on the page. */
+#main-box {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+
+/* ============================================================
+   5b. SPECIFICITY — who WINS when rules clash?
+   Power order:  ID  >  class  >  tag
+   ============================================================ */
+
+.plain   { color: grey; }     /* weakest */
+.warning { color: orange; }   /* class beats a plain tag */
+#special { color: red; }      /* ID beats a class, so RED wins */
+
+
+/* ============================================================
+   6. COLORS
+   color = the text colour
+   background-color = the colour behind it
+   ============================================================ */
+
+/* You can write colours as names, HEX (#2563eb), or rgb(...) */
+.color-button {
+  background-color: #2563eb;   /* HEX code */
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Little colour squares to show different ways to write colours */
+.swatch { display: inline-block; width: 60px; height: 45px; border-radius: 8px; }
+.color-name { background: tomato; }              /* a colour NAME      */
+.color-hex  { background: #10b981; }             /* a HEX code         */
+.color-rgb  { background: rgb(37, 99, 235); }    /* red, green, blue   */
+
+
+/* ============================================================
+   7. STYLE YOUR FIRST PAGE  (the "About Me" example)
+   ============================================================ */
+
+.about-box {
+  background-color: #f0f9ff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+.about-name {
+  color: #2563eb;
+}
+.about-line {
+  color: #475569;
+  font-size: 18px;
+}
+
+
+/* ============================================================
+   8. TEXT & FONTS
+   ============================================================ */
+
+/* A big, bold, centred heading */
+.big-text {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Remove the underline from a link */
+.no-underline {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+/* line-height = space between lines. Bigger = easier to read. */
+.airy-text {
+  line-height: 1.9;
+}
+
+
+/* ============================================================
+   9 + 10. THE BOX MODEL, MARGIN, PADDING & BORDER
+   A box has 4 layers:  content → padding → border → margin
+   padding = space INSIDE the box
+   margin  = space OUTSIDE the box
+   ============================================================ */
+
+.box {
+  width: 220px;
+  padding: 20px;               /* space inside, around the text */
+  border: 3px solid #2563eb;   /* width | style | colour        */
+  margin: 20px auto;           /* space outside (auto = centre) */
+  background: #dbeafe;
+  text-align: center;
+  border-radius: 10px;         /* rounded corners               */
+}
+
+/* border-radius: 50% turns a square into a circle */
+.circle {
+  width: 80px;
+  height: 80px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   11. BACKGROUNDS
+   ============================================================ */
+
+.banner {
+  /* You can use a real picture here:
+     background-image: url("photo.jpg"); */
+  background-image: linear-gradient(to right, #1e3a8a, #3b82f6);
+  background-size: cover;       /* fill the whole area neatly */
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  border-radius: 10px;
+}
+
+
+/* ============================================================
+   12. UNITS  (px, %, rem)
+   px = a fixed size that never changes
+   %  = a size that stretches to fit
+   rem = good for font sizes
+   ============================================================ */
+
+.full-width {
+  width: 100%;          /* takes the full width of its parent */
+  background: #eef2ff;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+
+/* ============================================================
+   13. DISPLAY  (block / inline / none)
+   ============================================================ */
+
+/* Make links sit in a row, like a menu */
+.menu a {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+/* display: none completely hides an element */
+.hidden {
+  display: none;
+}
+
+
+/* ============================================================
+   14. FLEXBOX — the easy way to line things up in a row
+   ============================================================ */
+
+.row {
+  display: flex;                    /* turn on flexbox            */
+  justify-content: space-between;   /* spread items across        */
+  align-items: center;              /* line them up in the middle */
+  gap: 12px;
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Add this class to push the items to the centre instead */
+.row-center {
+  justify-content: center;
+}
+
+.box-item {
+  background: #2563eb;
+  color: white;
+  padding: 16px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+
+/* ============================================================
+   15. POSITION — placing an element in a special spot
+   ============================================================ */
+
+.tag-area {
+  position: relative;     /* the box the tag will sit inside */
+  height: 80px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+.corner-tag {
+  position: absolute;     /* stick to a corner of the box above */
+  top: 8px;
+  right: 8px;
+  background: #ef4444;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   16. HOVER + TRANSITION — make buttons feel alive
+   ============================================================ */
+
+.button {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;             /* makes the change smooth */
+}
+.button:hover {
+  background-color: #1d4ed8;    /* darker when you point at it */
+}
+
+
+/* ============================================================
+   17. RESPONSIVE — change styles on small screens (phones)
+   When the screen is 600px wide or smaller, stack the row
+   into a column. Try it: drag your browser window narrow!
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+
+/* ============================================================
+   18. FINAL PROJECT — a Profile Card
+   It uses almost everything above:
+   flexbox + the box model + rounded corners + colours + hover
+   ============================================================ */
+
+.card-area {
+  background-color: #f0f9ff;
+  display: flex;
+  justify-content: center;   /* centre the card left-to-right */
+  align-items: center;       /* centre it top-to-bottom       */
+  padding: 30px;
+  border-radius: 10px;
+}
+.card {
+  background-color: white;
+  width: 280px;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);   /* soft shadow */
+  text-align: center;
+}
+.card-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;        /* round photo */
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+}
+.card-name { color: #1f2937; margin-top: 12px; }
+.card-job  { color: #64748b; font-size: 14px; }
+.card .button { margin-top: 14px; }
