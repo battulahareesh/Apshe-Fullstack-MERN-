@@ -1,0 +1,44 @@
+/*
+ * ============================================================
+ * Style.css — EXTERNAL CSS STYLES FOR THE Style COMPONENT
+ * ============================================================
+ *
+ * This CSS file is imported in Style.jsx and demonstrates
+ * EXTERNAL CSS STYLING — one of the 3 ways to style React components.
+ *
+ * HOW EXTERNAL CSS WORKS IN REACT:
+ *   1. Create a .css file with your styles
+ *   2. Import it in your component: import './Style.css'
+ *   3. Use className="card" in your JSX to apply the styles
+ *
+ * NOTE: In Style.jsx, BOTH this external CSS and inline styles are applied.
+ * When they conflict, INLINE STYLES WIN because they have higher specificity.
+ * So the inline "background: black" overrides this file's "background: greenyellow".
+ */
+
+/* 
+ * .card — Styles for the styled box in Style.jsx
+ *
+ * Applied via: <div className="card" style={boxStyle}>
+ *
+ * ⚠️ NOTE ON STYLE CONFLICT:
+ * This sets "background: greenyellow", but the inline style in Style.jsx
+ * sets "background: black". The inline style takes priority, so the
+ * background will appear BLACK, not greenyellow.
+ *
+ * To see this CSS background color, you would need to REMOVE the
+ * inline background property from the boxStyle object in Style.jsx.
+ */
+.card {
+    background-color: black;             /* Background color (overridden by 'background' below) */
+    background: greenyellow;             /* Shorthand background (overridden by inline style in JSX) */
+    padding: 20px;                       /* 20px space inside the box */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* 
+     * Font stack — The browser tries each font in order:
+     *   1. 'Franklin Gothic Medium' (if installed on user's computer)
+     *   2. 'Arial Narrow' (fallback)
+     *   3. Arial (common fallback)
+     *   4. sans-serif (generic fallback — every computer has a sans-serif font)
+     */
+}
