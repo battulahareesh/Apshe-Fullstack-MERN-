@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- 
+  ============================================================
+  index.html — THE ENTRY POINT OF THE ENTIRE APPLICATION
+  ============================================================
+  
+  This is the ONLY HTML file in a React app (Single Page Application / SPA).
+  
+  HOW IT WORKS:
+  1. The browser loads this HTML file first.
+  2. Inside <body>, there is a single <div id="root"> — this is where 
+     React will inject (render) all of our components.
+  3. The <script> tag at the bottom loads "src/main.jsx", which is the 
+     JavaScript entry point that bootstraps the React app.
+  
+  KEY CONCEPT: React is a "Single Page Application" framework — meaning 
+  the browser only loads THIS one HTML page, and React dynamically 
+  updates the content inside the "root" div using JavaScript.
+-->
+<html lang="en">
+  <head>
+    <!-- 
+      charset="UTF-8" — Tells the browser to use UTF-8 encoding,
+      which supports almost all characters and symbols worldwide.
+    -->
+    <meta charset="UTF-8" />
+
+    <!-- 
+      Favicon — The small icon that appears in the browser tab 
+      next to the page title. Points to an SVG file in the /public folder.
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- 
+      Viewport meta tag — Makes the website responsive on mobile devices.
+      "width=device-width" = page width matches the device's screen width.
+      "initial-scale=1.0" = no zoom when the page first loads.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+      Title — The text shown in the browser tab for this page.
+    -->
+    <title>my-react-app</title>
+  </head>
+  <body>
+    <!-- 
+      THE ROOT DIV — This is the mount point for the entire React application.
+      React's createRoot() function (in main.jsx) targets this div and renders 
+      all our React components INSIDE it. You won't see any content here in the 
+      source code because React fills it dynamically with JavaScript.
+    -->
+    <div id="root"></div>
+
+    <!-- 
+      SCRIPT TAG — Loads the React application's JavaScript entry point.
+      type="module" — Tells the browser this is an ES Module (modern JS),
+      which supports 'import' and 'export' statements.
+      src="/src/main.jsx" — Points to our main React file that starts the app.
+      
+      Vite (our build tool) processes this file during development and 
+      bundles it for production.
+    -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
