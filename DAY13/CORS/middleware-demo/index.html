@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CORS,MORGAN AND HELMET</title>
+    <style>
+         body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.6;
+        color: #222;
+        background-color: #f7f7f7;
+      }
+
+      h1 {
+        color: #1f2937;
+      }
+
+      button {
+        padding: 10px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        background-color: #2563eb;
+      }
+
+      button:hover {
+        background-color: #1d4ed8;
+      }
+
+      pre {
+        min-height: 160px;
+        padding: 16px;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cors,Morgan and Helmet Middleware Demo</h1>
+    <p>Click on the button to send request</p>
+    <button id="getStudenstButton">Get Data</button>
+    <h2>Api response</h2>
+    <pre id="output">Click the button to load students</pre>
+    <script>
+      const getStudentsButton = document.getElementById("getStudenstButton");
+      const output = document.getElementById("output");
+      const apiBaseUrl =
+        window.location.protocol === "file" || window.location.port !== "3000"
+          ? "http://localhost:3000"
+          : window.location.origin;
+
+      //this function will run when the user clicks the button
+      getStudentsButton.addEventListener("click", async () => {
+        output.textContent = "loading students......";
+
+        try {
+          const response = await fetch(`${apiBaseUrl}/api/students`);
+          if (!response.ok) {
+            throw new error(
+              `request failed with the status ${response.status}`,
+            );
+          }
+          const students = await response.json();
+          //displays the JSON response in a human readable format
+          output.textContent = JSON.stringify(students, null, 2);
+        } catch (error) {
+          output.textContent = "Error, error.message";
+          console.log(error);
+        }
+      });
+    </script>
+  </body>
+</html>
