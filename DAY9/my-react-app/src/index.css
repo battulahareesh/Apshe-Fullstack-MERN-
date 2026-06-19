@@ -1,0 +1,173 @@
+/*
+ * ============================================================
+ * index.css — GLOBAL STYLES FOR THE ENTIRE APPLICATION
+ * ============================================================
+ *
+ * This file is imported in main.jsx, so these styles apply to the
+ * ENTIRE application. It sets up:
+ *   1. CSS Custom Properties (variables) for theming
+ *   2. Dark mode support
+ *   3. Base typography (fonts, sizes, colors)
+ *   4. Layout for the root container
+ *
+ * CONCEPT: CSS CUSTOM PROPERTIES (CSS VARIABLES)
+ * CSS variables are defined with -- prefix: --text, --bg, etc.
+ * They are used with var(): color: var(--text)
+ * This makes it easy to change colors/values in one place
+ * and have them update everywhere they're used.
+ */
+
+/* ─── LIGHT THEME (Default) ─────────────────────────────── */
+:root {
+  /* 
+   * :root targets the <html> element. Variables defined here
+   * are available to ALL elements on the page.
+   */
+
+  /* ── Color Variables ── */
+  --text: #6b6375;              /* Regular text color (muted purple-gray) */
+  --text-h: #08060d;            /* Heading text color (near-black) */
+  --bg: #fff;                   /* Page background (white) */
+  --border: #e5e4e7;            /* Border color (light gray) */
+  --code-bg: #f4f3ec;           /* Background for <code> elements */
+  --accent: #aa3bff;            /* Accent/highlight color (purple) */
+  --accent-bg: rgba(170, 59, 255, 0.1);      /* Accent with 10% opacity */
+  --accent-border: rgba(170, 59, 255, 0.5);  /* Accent border with 50% opacity */
+  --social-bg: rgba(244, 243, 236, 0.5);     /* Social link background */
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    /* Box shadow — creates a subtle elevation effect (material design style) */
+
+  /* ── Font Variables ── */
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;    /* Body font stack */
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif; /* Heading font stack */
+  --mono: ui-monospace, Consolas, monospace;              /* Code font stack */
+
+  /* ── Base Typography ── */
+  font: 18px/145% var(--sans);  
+  /* 
+   * Shorthand: font-size: 18px, line-height: 145%, font-family: var(--sans) 
+   * line-height 145% = 1.45x the font size = comfortable reading spacing
+   */
+  letter-spacing: 0.18px;       /* Slight letter spacing for readability */
+  color-scheme: light dark;     /* Tell the browser this site supports both themes */
+  color: var(--text);           /* Default text color */
+  background: var(--bg);        /* Default background color */
+  font-synthesis: none;         /* Prevent browser from faking bold/italic */
+  text-rendering: optimizeLegibility;     /* Optimize text for readability */
+  -webkit-font-smoothing: antialiased;    /* Smoother fonts on WebKit browsers (Chrome, Safari) */
+  -moz-osx-font-smoothing: grayscale;     /* Smoother fonts on Firefox macOS */
+
+  /* Responsive: smaller font size on screens narrower than 1024px */
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* ─── DARK THEME ─────────────────────────────────────────── */
+/*
+ * @media (prefers-color-scheme: dark) — This detects the user's OS-level
+ * dark mode preference and automatically switches the color variables.
+ * 
+ * If the user has dark mode ON in their OS settings (Windows, macOS, etc.),
+ * these darker color values replace the light theme values above.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;              /* Lighter text for dark backgrounds */
+    --text-h: #f3f4f6;            /* Bright headings for dark mode */
+    --bg: #16171d;                /* Dark background */
+    --border: #2e303a;            /* Subtle dark borders */
+    --code-bg: #1f2028;           /* Slightly lighter dark for code blocks */
+    --accent: #c084fc;            /* Lighter purple accent for dark mode */
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  /* Invert and brighten social button icons for dark mode visibility */
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* ─── BASE ELEMENT STYLES ────────────────────────────────── */
+
+/* Remove default body margin (browsers add 8px by default) */
+body {
+  margin: 0;
+}
+
+/*
+ * #root — The container div where React renders the entire app.
+ * This is the <div id="root"> from index.html.
+ */
+#root {
+  width: 1126px;                 /* Fixed max width for large screens */
+  max-width: 100%;               /* Never exceed the viewport width */
+  margin: 0 auto;                /* Center the app horizontally on the page */
+  text-align: center;            /* Center-align all text by default */
+  border-inline: 1px solid var(--border);  /* Left & right borders */
+  min-height: 100svh;            /* At least full viewport height (svh = small viewport height) */
+  display: flex;                 /* Enable flexbox layout */
+  flex-direction: column;        /* Stack children vertically */
+  box-sizing: border-box;        /* Include padding/border in width calculations */
+}
+
+/* ─── HEADING STYLES ─────────────────────────────────────── */
+
+/* Shared styles for h1 and h2 headings */
+h1,
+h2 {
+  font-family: var(--heading);   /* Use the heading font stack */
+  font-weight: 500;              /* Medium weight (not too bold) */
+  color: var(--text-h);          /* Use heading text color */
+}
+
+/* h1 — Main page heading */
+h1 {
+  font-size: 56px;               /* Large heading size */
+  letter-spacing: -1.68px;       /* Tighter letter spacing for large text */
+  margin: 32px 0;                /* Vertical spacing above and below */
+  @media (max-width: 1024px) {
+    font-size: 36px;             /* Smaller on mobile */
+    margin: 20px 0;
+  }
+}
+
+/* h2 — Section subheading */
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;               /* Only bottom margin */
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+/* Remove default margins from paragraphs */
+p {
+  margin: 0;
+}
+
+/* ─── CODE & COUNTER STYLES ──────────────────────────────── */
+
+/* Shared styles for <code> elements and the .counter class */
+code,
+.counter {
+  font-family: var(--mono);      /* Monospace font for code */
+  display: inline-flex;          /* Inline-level flex container */
+  border-radius: 4px;           /* Slightly rounded corners */
+  color: var(--text-h);          /* Use heading color for emphasis */
+}
+
+/* Additional styles specific to <code> elements */
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;              /* Small padding around code text */
+  background: var(--code-bg);    /* Distinct background color for code */
+}
